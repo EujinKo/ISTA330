@@ -9,5 +9,17 @@ output: [5, 5, 2, 2, 2, 2]
 */
 
 var decode = function(input) {
+    const len = input.length;
+    var i,j;
+    var x,y;
 
+    var arr=[];
+    for(i=0;i<len/2;i++){
+        x = input[i*2];
+        y = input[i*2+1];
+        for(j=0;j<x;j++){
+            arr.push(y);
+        }
+    }
+    return arr;
 };

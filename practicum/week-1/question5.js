@@ -12,7 +12,29 @@ output: 3
 */
 
 var minimalReduction = function(n) {
-
+    var count = 0;
+    var num = n;
+    while(num != 0 ){
+        if(num%4==0){
+            num = divide_four(num);
+        }else if(num%3==0){
+            num = divide_three(num);
+        }else{
+            num = subtract_one(num);
+        }
+        count += 1;
+    }
+    return count;
 };
 
 console.log('hi');
+
+function divide_three(n){
+    return n/3;
+}
+function divide_four(n){
+    return n/4;
+}
+function subtract_one(n){
+    return n-1;
+}

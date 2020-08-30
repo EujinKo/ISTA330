@@ -13,6 +13,26 @@ output: 4 because the following partition has the highest number of balanced sub
           'ab', 'aabb', 'ab', 'ab'
 */
 
+
 var maxBalanceNumber = function(input) {
 
+  var count_a = 0;
+  var count_b = 0;
+  var count_bal = 0;
+  var char;
+  for(i=0;i<input.length;i++){
+    char = input.substr(i,1);
+    if(char==='a'){
+      count_a += 1;
+    }else{
+      count_b += 1;
+    }
+
+    if(count_a==count_b){
+      count_bal += 1;
+      count_a = 0;
+      count_b = 0;
+    }
+  }
+  return count_bal;
 };

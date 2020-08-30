@@ -6,5 +6,11 @@ output: 3
 */
 
 var median = function(input) {
-
+    var arr = input.sort();
+    var arr_len = input.length;
+    if(arr_len%2==0){
+        return (arr[arr_len/2-1]+arr[arr_len/2])/2;
+    }else{
+        return arr[arr_len/2-0.5];
+    }
 };
