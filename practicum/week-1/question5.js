@@ -27,7 +27,6 @@ var minimalReduction = function(n) {
     return count;
 };
 
-console.log('hi');
 
 function divide_three(n){
     return n/3;
