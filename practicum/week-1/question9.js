@@ -10,8 +10,12 @@ output: 'hello'
 
 var suffleString = function(input, shuffleIndices) {
     const len = input.length;
-    var arr = Array(len).fill('');
     var i,n;
+    var arr = [];
+    for(i=0;i<len;i++){
+        arr.push('');
+    }
+
     for(i=0;i<len;i++){
         n = shuffleIndices[i];
         arr[n] = input.substr(i,1);

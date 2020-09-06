@@ -18,9 +18,27 @@ var maxSumOfMins = function(input) {
        var x,y;
        var sum = 0;
        for(i=0;i<arr_len/2;i++){
-              x = arr[i*2];
-              y = arr[i*2+1];
+              x = input.splice(rtMaxIndex(input),1);
+              y = input.splice(rtMaxIndex(input),1);
               sum += Math.min(x,y);
        }
        return sum;
 };
+
+
+//Returns index of the max value of the array
+function rtMaxIndex(input){
+       if(input.length == 0){
+              return -1;
+       }
+       let max = input[0];
+       let max_i = 0;
+       let i;
+       for(i=0;i<input.length;i++){
+              if(input[i]>max){
+                     max = input[i];
+                     max_i = i;
+              }
+       }
+       return max_i;
+}

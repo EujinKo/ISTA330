@@ -27,13 +27,15 @@ var minimalReduction = function(n) {
     return count;
 };
 
-
+//This function returns of the input/3
 function divide_three(n){
     return n/3;
 }
+//This function returns of the input/4
 function divide_four(n){
     return n/4;
 }
+//This function returns of the input-1
 function subtract_one(n){
     return n-1;
 }

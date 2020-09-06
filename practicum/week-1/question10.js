@@ -18,9 +18,38 @@ var maxMinusMin = function(n) {
         num = (num-temp)/10;
     }
     arr.push(num);
-    arr.sort();
 
-    var max = arr[arr.length-1];
-    var min = arr[0];
+    var max = rtMax(arr);
+    var min = rtMin(arr);
     return max-min;
 };
+
+//This function returns the minimum value in the array
+function rtMin(input){
+    if(input.length==0){
+        return null;
+    }
+    var i;
+    var min = input[0];
+    for(i=0;i<input.length;i++){
+        if(min>input[i]){
+            min = input[i];
+        }
+    }
+    return min;
+}
+
+//This function returns the maximum value in the array
+function rtMax(input){
+    if(input.length==0){
+        return null;
+    }
+    var i;
+    var max = input[0];
+    for(i=0;i<input.length;i++){
+        if(max<input[i]){
+            max = input[i];
+        }
+    }
+    return max;
+}
