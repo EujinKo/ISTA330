@@ -13,5 +13,34 @@ output: [
 */
 
 var PascalTriangle = function(n) {
+  if(n==0){
+    return arr;
+  }
+  var arr = [
+    [1]
+  ];
+  if(n==1){
+    return arr;
+  }
+  arr.push([1,1]);
+  if(n==2){
+    return arr;
+  }
+
+  let i;
+  for(i=2;i<n;i++){
+    let new_arr = [];
+    let tmp_arr = arr[i-1];
+    
+    new_arr.push(1);
+    for(j=1;j<tmp_arr.length;j++){
+      let sum = tmp_arr[j-1]+tmp_arr[j];
+      new_arr.push(sum);
+    }
+    new_arr.push(1);
+    arr.push(new_arr);
+  }
+  // alert(arr);
+  return arr;
 
 };
