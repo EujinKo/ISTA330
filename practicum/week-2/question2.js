@@ -13,15 +13,16 @@ Example: input: [-12,3,-1,5,-2,1,-7]
      let i,j;
      let max = 0;
      for(i=0;i<input.length;i++){
-             for(j=0;j<input.length;j++){
+             for(j=1;j<input.length+1;j++){
                      let tmp = input.slice(i,j);
+                //      alert(tmp);
                      let sum = rtSum(tmp);
                      if(sum>max){
                              max = sum;
                      }
              }
      }
-     return max;
+     return max
     
  };
 
