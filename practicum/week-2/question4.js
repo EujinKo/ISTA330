@@ -13,5 +13,15 @@ Example:
 */
 
 var hasDuplicates = function(input) {
+    let len = input.length;
 
+    let i,j;
+    for(i=0;i<len;i++){
+        for(j=0;j<len;j++){
+            if(input[i]===input[j] && i!=j){
+                return true;
+            }
+        }
+    }
+    return false;
 };

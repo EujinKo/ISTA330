@@ -17,7 +17,26 @@ output: true
 */
 
 var isMonotonic = function(input) {
+    if(input.length <= 1){
+        return true;
+    }
+    
+    let isDecreasing;
+    if(input[0]<input[1]){  //Increasing
+        isDecreasing = false;
+    }else{  //Decreasing
+        isDecreasing = true;
+    }
 
+    let i;
+    for(i=1;i<input.length;i++){
+        if(isDecreasing && input[i-1]<input[i]){    //Increasing
+            return false;
+        }else if(!isDecreasing && input[i-1]>input[i]){
+            return false;
+        }
+    }
+    return true;
 };
 
 console.log('hi');
