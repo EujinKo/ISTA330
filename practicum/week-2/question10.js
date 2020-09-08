@@ -22,7 +22,7 @@ var minPairs = function(input) {
 
     while(dup.length!=0){
         
-        let val1 = dup.splice(rtMinIndex(dup),1);
+        let val1 = dup.splice(rtMinIndex(dup),1)[0];
         let i;
         for(i=0;i<dup.length;i++){
             let val2 = dup[i];
@@ -37,11 +37,12 @@ var minPairs = function(input) {
                     tmp.push(val1);
                 }
                 arr.push(tmp);
+                console.log(tmp);
             }
         }
         
     }
-
+    console.log(arr);
     return arr;
 };
 
