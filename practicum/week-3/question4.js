@@ -21,3 +21,19 @@ Example:
 var powerSet = function(input) {
 
 };
+
+//Bubble sort function for the array input, returns new array
+function bubble_sort(input){
+  let l = input.length;
+  let i,j,temp;
+  for(i=l-1;i>0;i--){
+          for(j=0;j<i;j++){
+                  if(input[j]>input[j+1]){
+                          temp = input[j];
+                          input[j] = input[j+1];
+                          input[j+1] = temp;
+                  }
+          }
+  }
+  return input;
+};

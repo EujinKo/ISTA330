@@ -20,5 +20,45 @@ Return the number of teams you can form given the conditions.
 */
 
 var howManyTeams = function(input) {
-   
+        var count = 0;
+        if(input.length<0){
+                return count;
+        }
+        let second,third;
+        while(input.length>0){
+                let tmp = input[0];
+                second = biggerThanIndex(input,0)
+                if(second.length>0){
+                        let i;
+                        for(i=0;i<second.length;i++){
+                                third = biggerThanIndex(input,second[i]);
+                                if(third.length>0){
+                                        input.splice(third[0],1);
+                                        input.splice(second[i],1);
+                                        count+=1;
+                                        break;
+
+                                }
+                        }
+
+                }
+                input.shift();
+        }
+        return count;
 };
+
+//This function finds an array of index values which are bigger
+// than the value at the arr[index]
+function biggerThanIndex(arr, index){
+        let new_arr = [];
+        let i;
+        let val = arr[index];
+        for(i=index;i<arr.length;i++){
+                if(arr[i]>val){
+                        new_arr.push(i);
+                }
+        }
+        // alert(new_arr);
+        return new_arr;
+}
+
