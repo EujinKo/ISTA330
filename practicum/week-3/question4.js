@@ -19,33 +19,9 @@ Example:
 */
 
 var powerSet = function(input) {
-  // var arr = [];
-  // var tmp;
-  // let size =0;
-  // let i,j;
-  // for(size=0;size<input.length;size++){
-  //   tmp = [];
-  //   for(i=0;i<input.length;i++){
-  //     for(j=0;j<size;j++){
+  var arr = [];
+  arr.push([]);
 
-  //     }
-  //   }
-  //   arr.push(tmp);
-  //   // alert(tmp);
-  // }
-
-  // return arr;
+  return arr;
 };
-
-//Checks if the target exists in arr
-function ifExist(arr,target){
-  let i;
-  for(i=0;i<arr.length;i++){
-    if(target == arr[i]){
-      return true;
-    }
-  }
-  return false;
-}
-
 
