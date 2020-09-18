@@ -37,7 +37,7 @@ var longestNested = function(A) {
                value = A[value];
 
           }
-          alert(tmp_arr);
+          // alert(tmp_arr);
           nested.push(tmp_arr);
      }
 
