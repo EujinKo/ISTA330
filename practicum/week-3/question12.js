@@ -13,13 +13,44 @@ Example:
 */
 
 var isCrossing = function(s) {
-    var arr = [];
-    let i;
+    var curr = [0,0];
+    var path = [];
+    path.push([curr[0],curr[1]]);
     for(i=0;i<s.length;i++){
-        if(s[i] != ' '){
-            let tmp = s[i];
-            arr.push(tmp);
+        let tmp = s[i];
+        if(tmp == 'N'){
+            curr[1] += 1;
+        }
+        if(tmp == 'S'){
+            curr[1] -= 1;
+        }
+        if(tmp == 'E'){
+            curr[0] += 1;
+        }
+        if(tmp == 'W'){
+            curr[0] -= 1;
+        }
+        path.push([curr[0],curr[1]]);
+
+    }
+    if(didCrossed(path) == true){
+        return true;
+    }
+    return false;
+};
+
+
+function didCrossed(input){
+    var arr = input;
+    while(arr.length>0){
+        let i;
+        let val = arr.pop();
+        for(i=0;i<arr.length;i++){
+            let tmp = arr[i];
+            if(val[0]==tmp[0] && val[1]==tmp[1]){
+                return true;
+            }
         }
     }
-
-};
+    return false;
+}
