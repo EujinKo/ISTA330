@@ -11,5 +11,21 @@ output: true
 */
 
 var isPalindrome = function(s) {
-
+    var arr = [];
+    let i;
+    for(i=0;i<s.length;i++){
+        if(s[i] != ' '){
+            let tmp = s[i].toLowerCase();
+            if(tmp>='a' && tmp <= 'z'){
+                arr.push(tmp);
+            }
+        }
+    }
+    let size = arr.length;
+    for(i=0;i<size/2;i++){
+        if(arr[i]!=arr[size-1-i]){
+            return false;
+        }
+    }
+    return true;
 };

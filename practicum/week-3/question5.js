@@ -10,6 +10,18 @@ output: [24,12,8,6]
 */
 
 var productOfOthers = function(input) {
+    let arr = [];
+    let i,j;
+    for(i=0;i<input.length;i++){
+        let tmp = 1;
+        for(j=0;j<input.length;j++){
+            if(i!=j){
+                tmp = tmp * input[j];
+            }
+        }
+        arr.push(tmp);
+    }
+    return arr;
 
 };
 

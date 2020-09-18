@@ -19,21 +19,33 @@ Example:
 */
 
 var powerSet = function(input) {
+  // var arr = [];
+  // var tmp;
+  // let size =0;
+  // let i,j;
+  // for(size=0;size<input.length;size++){
+  //   tmp = [];
+  //   for(i=0;i<input.length;i++){
+  //     for(j=0;j<size;j++){
 
+  //     }
+  //   }
+  //   arr.push(tmp);
+  //   // alert(tmp);
+  // }
+
+  // return arr;
 };
 
-//Bubble sort function for the array input, returns new array
-function bubble_sort(input){
-  let l = input.length;
-  let i,j,temp;
-  for(i=l-1;i>0;i--){
-          for(j=0;j<i;j++){
-                  if(input[j]>input[j+1]){
-                          temp = input[j];
-                          input[j] = input[j+1];
-                          input[j+1] = temp;
-                  }
-          }
+//Checks if the target exists in arr
+function ifExist(arr,target){
+  let i;
+  for(i=0;i<arr.length;i++){
+    if(target == arr[i]){
+      return true;
+    }
   }
-  return input;
-};
+  return false;
+}
+
+
