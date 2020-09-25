@@ -34,8 +34,8 @@
        }
        let daffodil = new Flower('Daffodil', 'daffodil.png');
        let cherryblossom = new Flower('Cherry blossom', 'cherryblossom.png');
-       let lily = new Flower('Lily', 'lily.png');
-       let daisy = new Flower('Daisy', 'daisy.png');
+       let lily = new Flower('Lily', 'lily.jpg');
+       let daisy = new Flower('Daisy', 'daisy.jpg');
        let sunflower = new Flower('Sunflower', 'sunflower.png');
        let tulip = new Flower('Tulip', 'tulip.png');
        let rose = new Flower('Rose', 'rose.png');
@@ -51,6 +51,32 @@
              rose,
              waterlily
        ];
+
+       let flowersDiv = document.getElementById("flowersDiv");
+       let img_table_block = [];
+       flowers.forEach(flower=>{
+            let table = document.createElement("th");
+            //1. image row
+            let img_tr = document.createElement("tr");
+            let img = document.createElement("img");
+            img.src = "images/"+flower.picture;
+            img_tr.appendChild(img);
+            //2. text row
+            let txt_tr = document.createElement("tr");
+            let paragraph = document.createElement("p3");
+            let txt = document.createTextNode(flower.name);
+            paragraph.appendChild(txt);
+            txt_tr.appendChild(paragraph);
+
+            //3. Add all rows to the tables
+            table.appendChild(img_tr);
+            table.appendChild(txt_tr);
+
+            //4. Add to array
+            img_table_block.push(table);
+            flowersDiv.appendChild(table);
+
+       });
     </script>
 </body>
 </html>
