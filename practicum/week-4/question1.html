@@ -14,6 +14,8 @@
         For each flower, you should show the image
         and under the image display its name.
     </div>
+
+
     <div id='flowersDiv'>
 
     </div>
@@ -53,30 +55,54 @@
        ];
 
        let flowersDiv = document.getElementById("flowersDiv");
-       let img_table_block = [];
+       let img_td_block = [];
+       let txt_td_block = [];
+       
        flowers.forEach(flower=>{
-            let table = document.createElement("th");
+            let img_td = document.createElement("td");
             //1. image row
-            let img_tr = document.createElement("tr");
             let img = document.createElement("img");
             img.src = "images/"+flower.picture;
-            img_tr.appendChild(img);
+            img_td.appendChild(img);
+            img_td_block.push(img_td);
+
             //2. text row
-            let txt_tr = document.createElement("tr");
-            let paragraph = document.createElement("p3");
-            let txt = document.createTextNode(flower.name);
-            paragraph.appendChild(txt);
-            txt_tr.appendChild(paragraph);
-
-            //3. Add all rows to the tables
-            table.appendChild(img_tr);
-            table.appendChild(txt_tr);
-
-            //4. Add to array
-            img_table_block.push(table);
-            flowersDiv.appendChild(table);
+            let txt_td = document.createElement("td");
+            let txt = document.createElement("p3");
+            txt.appendChild(document.createTextNode(flower.name));
+            txt_td.appendChild(txt);
+            txt_td_block.push(txt_td);
 
        });
+
+       let count = 0;
+
+       let table =  document.createElement("table");
+       
+       let img_tr = null;
+       let txt_tr = null;
+       
+       let i;
+       for(i=0;i<img_td_block.length;i++){
+            let img_td = img_td_block[i];
+            let txt_td = txt_td_block[i];
+            if(count%4==0){
+                if(img_tr != null){
+                    table.appendChild(img_tr);
+                    table.appendChild(txt_tr);
+                }
+                img_tr = document.createElement("tr");
+                txt_tr = document.createElement("tr");
+            }
+            img_tr.appendChild(img_td);
+            txt_tr.appendChild(txt_td);
+            count++;
+       }
+       table.appendChild(img_tr);
+       table.appendChild(txt_tr);
+       flowersDiv.appendChild(table);
+
+
     </script>
 </body>
 </html>
