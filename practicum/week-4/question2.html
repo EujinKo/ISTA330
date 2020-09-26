@@ -83,8 +83,8 @@
         }
         let daffodil = new Flower('Daffodil', 'daffodil.png');
         let cherryblossom = new Flower('Cherry blossom', 'cherryblossom.png');
-        let lily = new Flower('Lily', 'lily.png');
-        let daisy = new Flower('Daisy', 'daisy.png');
+        let lily = new Flower('Lily', 'lily.jpg');
+        let daisy = new Flower('Daisy', 'daisy.jpg');
         let sunflower = new Flower('Sunflower', 'sunflower.png');
         let tulip = new Flower('Tulip', 'tulip.png');
         let rose = new Flower('Rose', 'rose.png');
@@ -100,6 +100,100 @@
             rose,
             waterlily
         ];
+
+        //Bubble sort function for the array input, returns new array
+        function bubble_sort(input){
+            let l = input.length;
+            let i,j,temp;
+            for(i=l-1;i>0;i--){
+            for(j=0;j<i;j++){
+                if(input[j].name[0]>input[j+1].name[0]){
+                    temp = input[j];
+                    input[j] = input[j+1];
+                    input[j+1] = temp;
+                }
+            }
+            }
+            return input;
+        };
+        bubble_sort(flowers);
+
+
+        let flowersDiv = document.getElementById("flowersDiv");
+        let img_td_block = [];
+        let txt_td_block = [];
+        
+        function setUp(){
+            var count = 0;
+            flowers.forEach(flower=>{
+                let img_td = document.createElement("td");
+                //1. image row
+                let img = document.createElement("img");
+                img.src = "images/"+flower.picture;
+                img_td.appendChild(img);
+                img_td.setAttribute('id',count);
+                img_td.addEventListener('click',function(){
+                    let target_index = parseInt(img_td.id);
+                    var first = flowers.slice(0, target_index);
+                    var second = flowers.slice(target_index);
+                    flowers = second.concat(first);
+                    setUp();
+                    onRefresh();
+                });
+                img_td_block.push(img_td);
+    
+                //2. text row
+                let txt_td = document.createElement("td");
+                let txt = document.createElement("p3");
+                txt.appendChild(document.createTextNode(flower.name));
+                txt_td.appendChild(txt);
+                txt_td.setAttribute('id',count);
+                txt_td_block.push(txt_td);
+                count ++;
+           });
+        }
+ 
+        function onRefresh(){
+            clearByID("flowersDiv");
+             let count = 0;
+ 
+             let table =  document.createElement("table");
+             
+             let img_tr = null;
+             let txt_tr = null;
+             
+             let i;
+             for(i=0;i<img_td_block.length;i++){
+                 let img_td = img_td_block[i];
+                 let txt_td = txt_td_block[i];
+                 if(count%4==0){
+                     if(img_tr != null){
+                         table.appendChild(img_tr);
+                         table.appendChild(txt_tr);
+                     }
+                     img_tr = document.createElement("tr");
+                     txt_tr = document.createElement("tr");
+                 }
+                 img_tr.appendChild(img_td);
+                 txt_tr.appendChild(txt_td);
+                 count++;
+             }
+             table.appendChild(img_tr);
+             table.appendChild(txt_tr);
+             flowersDiv.appendChild(table);
+        }
+
+        function clearByID(id){
+            alert(id);
+            let target = document.getElementById(id);
+            while(target.firstChild){
+                target.removeChild(target.firstChild);
+            }
+        }
+        
+
+        setUp();
+        onRefresh();
     </script>
 </body>
 

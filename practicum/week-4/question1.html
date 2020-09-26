@@ -75,33 +75,35 @@
 
        });
 
-       let count = 0;
+       function onRefresh(){
+            let count = 0;
 
-       let table =  document.createElement("table");
-       
-       let img_tr = null;
-       let txt_tr = null;
-       
-       let i;
-       for(i=0;i<img_td_block.length;i++){
-            let img_td = img_td_block[i];
-            let txt_td = txt_td_block[i];
-            if(count%4==0){
-                if(img_tr != null){
-                    table.appendChild(img_tr);
-                    table.appendChild(txt_tr);
+            let table =  document.createElement("table");
+            
+            let img_tr = null;
+            let txt_tr = null;
+            
+            let i;
+            for(i=0;i<img_td_block.length;i++){
+                let img_td = img_td_block[i];
+                let txt_td = txt_td_block[i];
+                if(count%4==0){
+                    if(img_tr != null){
+                        table.appendChild(img_tr);
+                        table.appendChild(txt_tr);
+                    }
+                    img_tr = document.createElement("tr");
+                    txt_tr = document.createElement("tr");
                 }
-                img_tr = document.createElement("tr");
-                txt_tr = document.createElement("tr");
+                img_tr.appendChild(img_td);
+                txt_tr.appendChild(txt_td);
+                count++;
             }
-            img_tr.appendChild(img_td);
-            txt_tr.appendChild(txt_td);
-            count++;
+            table.appendChild(img_tr);
+            table.appendChild(txt_tr);
+            flowersDiv.appendChild(table);
        }
-       table.appendChild(img_tr);
-       table.appendChild(txt_tr);
-       flowersDiv.appendChild(table);
-
+       onRefresh();
 
     </script>
 </body>
