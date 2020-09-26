@@ -124,6 +124,12 @@
         let txt_td_block = [];
         
         function setUp(){
+            while(img_td_block.length != 0){
+                img_td_block.shift();
+                txt_td_block.shift();
+            }
+
+
             var count = 0;
             flowers.forEach(flower=>{
                 let img_td = document.createElement("td");
@@ -137,6 +143,7 @@
                     var first = flowers.slice(0, target_index);
                     var second = flowers.slice(target_index);
                     flowers = second.concat(first);
+                    clearByID("flowersDiv");
                     setUp();
                     onRefresh();
                 });
@@ -154,7 +161,6 @@
         }
  
         function onRefresh(){
-            clearByID("flowersDiv");
              let count = 0;
  
              let table =  document.createElement("table");
@@ -184,9 +190,8 @@
         }
 
         function clearByID(id){
-            alert(id);
             let target = document.getElementById(id);
-            while(target.firstChild){
+            while(target.hasChildNodes()){
                 target.removeChild(target.firstChild);
             }
         }
